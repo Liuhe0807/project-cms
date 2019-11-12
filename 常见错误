@@ -1,0 +1,11 @@
+1、Project configuration is not up-to-date with pom.xml. Select: Maven->Update Project... from the project context menu or use Quick Fix.	zhukaige-cms		line 1	Maven Configuration Problem
+ 项目上鼠标右键点击  然后 maven update project 即可。
+
+2、Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-beans.xml]: Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'org.springframework.core.io.Resource[]' for property 'mapperLocations'; nested exception is java.lang.IllegalArgumentException: Could not resolve resource location pattern [classpath:mybatis/*.xml]: class path resource [mybatis/] cannot be resolved to URL because it does not exist
+    at org.springframework.beans.factory.support.AbstractAu
+    
+     缺少mapper.xml 的文件 
+ 
+3、Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Mapper's namespace cannot be empty
+    at org.apache.ibatis.builder.xml.XMLMapperBuilder.co
+     命名空间不能空     

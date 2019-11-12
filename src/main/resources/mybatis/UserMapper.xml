@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuhe.dao.UserMapper">
+	<!-- <resultMap type="Move" id="mMap">
+		<id property="mid" column="mid"/>
+		<result property="mname" column="mname"/>
+		<result property="description" column="description"/>
+		<result property="dname" column="dname"/>
+		<result property="dt" column="dt"/>
+		<collection property="types" ofType="com.liuhe.beans.Type" select="getTypeByMid" column="mid">
+		
+		</collection>
+		
+	</resultMap>
+	<select id="getMoveList" resultMap="mMap">
+		select * from move
+		<where>
+			<if test="name!=null and name!=''">and mname like '%${name}%'</if>
+		</where>
+	</select>
+	<select id="getTypeByMid" resultType="Type">
+		select * from type,center where center.tid=type.tid and center.mid=#{mid}
+	</select>
+	<insert id="add" keyProperty="mid" useGeneratedKeys="true">
+		insert into move set mname=#{mname},description=#{description},dname=#{dname},dt=#{dt}
+	</insert>
+	<insert id="addCenter">
+		insert into center set mid=#{mid},tid=#{tid}
+	</insert>
+	<select id="getTypeList" resultType="Type">
+		select * from type
+	</select>
+	<delete id="delete">
+		delete from move where mid=#{mid}
+	</delete>
+	<delete id="deleteCenter">
+		delete from center where center.mid=#{mid}
+	</delete> -->
+</mapper>

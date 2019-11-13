@@ -5,8 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CMD管理平台</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.2.min.js" ></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/My97DatePicker/WdatePicker.js"></script>
 <link href="<%=request.getContextPath()%>/css/css.css" rel="stylesheet">
 <script type="text/javascript" src="/resource/js/jquery-3.2.1.js"></script> 
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>

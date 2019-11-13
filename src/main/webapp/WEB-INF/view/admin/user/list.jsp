@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
@@ -11,7 +12,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">查询</button>
+            <input type="button" class="btn btn-default" value="查询">
         </form>
     </div>
     </div>
@@ -19,41 +20,56 @@
 
 <div class="table-responsive">
   <table class="table">
-    <caption>响应式表格布局</caption>
+    <caption>用户列表</caption>
     <thead>
       <tr>
-        <th>产品</th>
-        <th>付款日期</th>
+        <th>用户id</th>
+        <th>姓名</th>
+        <th>注册日期</th>
+        <th>生日</th>
+        <th>角色</th>
         <th>状态</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>产品1</td>
-        <td>23/11/2013</td>
-        <td>待发货</td></tr>
-      <tr>
-        <td>产品2</td>
-        <td>10/11/2013</td>
-        <td>发货中</td></tr>
-      <tr>
-        <td>产品3</td>
-        <td>20/10/2013</td>
-        <td>待确认</td></tr>
-      <tr>
-        <td>产品4</td>
-        <td>20/10/2013</td>
-        <td>已退货</td></tr>
+      <c:forEach items="${info.list }" var="l">
+      	<c:if test="${user.locked==1 }">
+      		<tr class="active">
+      	</c:if>
+      	<c:if test="${user.locked!=1 }">
+      		<tr >
+      	</c:if>
+      	
+      <td>${l.id }</td>
+      <td>${l.username }</td>
+      <td><fmt:formatDate pattern="YYYY年MM月dd号" value="${l.createTime }"/></td>
+      <td><fmt:formatDate pattern="YYYY年MM月dd号" value="${l.birthday }"/></td>
+      <td>
+      <c:choose>
+      	<c:when test="${user.role==1 }">
+      		管理员
+      	</c:when>
+      	<c:when test="${user.role==0 }">
+      		普通用户
+      	</c:when>
+      	<c:otherwise>
+      		未知
+      	</c:otherwise>
+      </c:choose>
+      </td>
+      <td>${user.locked==1?"禁用":"正常" }</td>
+      <td></td>
+      
+      </tr>
+      </c:forEach>
     </tbody>
   </table>
 </div>
 <ul class="pagination">
-    <li><a href="#">&laquo;</a></li>
+    <li><a href="javascript:goPage(${info.prePage})">&laquo;</a></li>
+    <c:forEach begin="${info.pageNum-2>1?info.pageNum-2:1 }" end="${info.pageNum+2>info.page?info.pages:info.pageNum+2 }">
     <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">&raquo;</a></li>
+    </c:forEach>
+    <li><a href="javascript:goPage(${info.nextPage})">&raquo;</a></li>
 </ul>
     
     

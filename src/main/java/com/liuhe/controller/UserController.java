@@ -1,4 +1,4 @@
-package com.liuhe.beans;
+package com.liuhe.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

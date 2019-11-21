@@ -13,48 +13,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="list" resultMap="userMapper">
 		select * from cms_user
 		<where>
-			<if test="value!=null and valu!=''">
+			<if test="value!=null and value!=''">
 				and username like concat('%',#{value},'%')
 			</if>
 		
 		</where>
-		
-		
+				
 	</select>
+	<select id="findUserById" resultMap="userMapper">
+		SELECT * FROM cms_user WHERE id=${value}
+	</select>
+	
+	<select id="getById" resultMap="userMapper">
+		SELECT * FROM cms_user 
+		WHERE id=#{value}
+	</select>
+	<insert id="add">
+		insert into cms_user(username,password,nickname,birthday,gender,locked,create_time,
+		update_time,url,score,role) value(#{username},#{password},#{nickname},#{birthday},#{gender},0,now(),
+		now(),'',0,#{role})
+	</insert>
 
-	<!-- <resultMap type="Move" id="mMap">
-		<id property="mid" column="mid"/>
-		<result property="mname" column="mname"/>
-		<result property="description" column="description"/>
-		<result property="dname" column="dname"/>
-		<result property="dt" column="dt"/>
-		<collection property="types" ofType="com.liuhe.beans.Type" select="getTypeByMid" column="mid">
-		
-		</collection>
-		
-	</resultMap>
-	<select id="getMoveList" resultMap="mMap">
-		select * from move
-		<where>
-			<if test="name!=null and name!=''">and mname like '%${name}%'</if>
-		</where>
-	</select>
-	<select id="getTypeByMid" resultType="Type">
-		select * from type,center where center.tid=type.tid and center.mid=#{mid}
-	</select>
-	<insert id="add" keyProperty="mid" useGeneratedKeys="true">
-		insert into move set mname=#{mname},description=#{description},dname=#{dname},dt=#{dt}
-	</insert>
-	<insert id="addCenter">
-		insert into center set mid=#{mid},tid=#{tid}
-	</insert>
-	<select id="getTypeList" resultType="Type">
-		select * from type
-	</select>
-	<delete id="delete">
-		delete from move where mid=#{mid}
-	</delete>
-	<delete id="deleteCenter">
-		delete from center where center.mid=#{mid}
-	</delete> -->
+
+
+
+
+
+	
 </mapper>

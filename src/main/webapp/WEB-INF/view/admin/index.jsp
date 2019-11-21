@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html ">
+<!DOCTYPE html >
 <html>
 <head>
+<%-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="<%=request.getContextPath()%>/resource/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath() %>/resource/js/jquery-3.2.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/resource/bootstrap/js/bootstrap.js"></script> --%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="/resource/bootstrap/css/bootstrap.css" rel="stylesheet">  
+ <script type="text/javascript" src="/resource/js/jquery-3.2.1.js"></script> 
+ <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
 <title>CMD管理平台</title>
-<link href="<%=request.getContextPath()%>/css/css.css" rel="stylesheet">
-<script type="text/javascript" src="/resource/js/jquery-3.2.1.js"></script> 
-<script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 
@@ -33,6 +39,7 @@
     </div>
     </div>
 </nav>
+
 <div class="row">
 	<div class="col-md-2">
 		<div style="margin-left:20px ">
@@ -47,15 +54,16 @@
 			  	</ul>
 			  </li>
 			  <li class="divider"></li>
-			  <li><a href="javascript:showFuction('/admin/users')">用户管理</a></li>
+			  <li><a href="javascript:showFunction('/admin/users')">用户管理</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="col-md-10"  style=" min-height:500px; border-left: solid">
-		<div id="content"></div>
+		<div id="content">
+			
+		</div>
 	</div>
 </div>
-
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom" 
 role="navigation">
@@ -63,13 +71,12 @@ role="navigation">
 </nav>
 
 <script type="text/javascript">
-	function showFuction(url){
-		$("#content").load(url)
+	function showFunction(url){
+		$("#content").load(url);
 	}
 </script>
 
 
-</nav>
 
 </body>
 </html>

@@ -279,7 +279,7 @@
                     <password>tomcat</password>
                   <!-- <uriEncoding>UTF-8</uriEncoding> -->
                     <port>8085</port>
-                    <path>/blog</path>
+                    <path>/</path>
                 </configuration>
             </plugin>
 			<!-- jetty配置 -->
@@ -301,7 +301,7 @@
 							<!-- 虚拟路径 -->
 							<contextPath>/pic</contextPath>
 							<!-- 物理路径 -->
-							<resourceBase>d:/pic/</resourceBase>
+							<resourceBase>d:/cms/pic/</resourceBase>
 						</jettyWebAppContext>
 					</contextHandlers>
 				 <scanIntervalSeconds>1</scanIntervalSeconds>

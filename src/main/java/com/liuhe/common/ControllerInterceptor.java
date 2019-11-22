@@ -1,10 +1,13 @@
 package com.liuhe.common;
 
-import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+
+@ControllerAdvice
 public class ControllerInterceptor {
 
 	@ExceptionHandler(CmsException.class)
@@ -14,4 +17,13 @@ public class ControllerInterceptor {
 		return new MsgResult(100,exception.getMessage(),null);
 	}
 	
+	@ExceptionHandler(CmsExceptionHtml.class)
+	public ModelAndView  interceptorExceptionHtml(CmsExceptionHtml excetion) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("error");// 跳转到jsp
+		modelAndView.addObject("errorInfo", excetion.getMessage());
+		return modelAndView;
+		
+	}	
 }

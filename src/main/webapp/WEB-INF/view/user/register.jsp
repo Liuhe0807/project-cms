@@ -1,58 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户注册</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.2.min.js" ></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/My97DatePicker/WdatePicker.js"></script>
-<link href="<%=request.getContextPath()%>/css/css.css" rel="stylesheet">
-<script type="text/javascript" src="/resource/js/jquery-3.2.1.js"></script> 
-<script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript"src=""src/main/webapp/resource/js/jquery.validate.js""></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>欢迎注册</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	href="/resource/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/resource/css/cms.css" />
+<link rel="stylesheet"  type="text/css"  href="/resource/css/jquery/screen.css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+.form-inline label {
+	display: inline-block;
+}
+</style>
+
 </head>
 <body>
-<form class="" >
-<div class="form-group">
-    <label for="firstname" class="col-sm-2 control-label">用户名</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="username" name="username" minlenth="2" maxlength="8"  placeholder="请输入用户名">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="lastname" class="col-sm-2 control-label">密码</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
-    </div>
-  </div>
- <!--  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox">请记住我
-        </label>
-      </div>
-    </div>
-  </div> -->
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <input type="button" class="btn btn-default" value="注册" onclick="register()"/>
-    </div>
-  </div>
-  </form>
-  
-<script type="text/javascript">
+	<jsp:include page="/WEB-INF/view/common/top.jsp"></jsp:include>
 
-//regForm需要校验 校验规则可以在这个函数内部 也可以直接卸载标签的属性上
-$("#regForm").validate();
-function register(){
-	$.post(
-		$("#regForm").submit();	
+	<!-- 登录注册页面 -->
+	<div style="height: 50px;">
+	</div>
+
+	<div class="container">
+		<div class="row passport_bg">
+			<div class="col-md-6">
+				<div class="passport_panel">
+					<div class="card">
+						<div class="card-header">欢迎注册</div>
+						<div class="card-body">
+
+							<form action="/user/register" method="post" id="valiateform">
+								<p class="w-100" align="center" style="color: red">${errorMsg}</p>
+								<div class="form-group">
+									<label for="username">用户名:</label> <input type="text"
+										class="form-control" name="username" 
+										required="true"
+										maxlength="12"
+										minlength="3"
+										remote="/user/checkExist"
+										placeholder="请输入用户名">
+								</div>
+								<div class="form-group" >
+									<label for="password">密码:</label> <input type="password"
+										class="form-control" name="password" id="password"
+										required="true"
+										maxlength="12"
+										minlength="3"
+										placeholder="请输入密码">
+								</div>
+								<!-- <div class="form-group">
+									<label for="repassword">确认密码:</label>
+									 <input type="password"
+										class="form-control" name="repassword" id="repassword"
+								</div> -->
+								<div class="form-group">
+									<label for="gender">性别:</label> <input class="radio"
+										type="radio" class="form-control" name="gender" id="gender"
+										value="1" checked="checked">男 <input type="radio"
+										class="radio" name="gender" class="form-control" id="gender"
+										value="2">女
+								</div>
+
+								<div class="form-group">
+									<button type="submit" class="btn btn-info">注册</button>
+									<p class="w-100" align="right">
+										如果已有帐号，请<a href="/user/login">点这里登录</a>
+									</p>
+								</div>
+
+							</form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="passport_r">
+					<h3>最新加入的用户：</h3>
+					<p align="center">
+						<img src="/resource/images/guest.jpg" alt="..."
+							class="rounded-circle img-thumbnail" /> &nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="/resource/images/guest1.jpg" alt="..."
+							class="rounded-circle img-thumbnail" />
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<br /> <br />
+	</div>
 	
-	)
-}
-
-</script>
+	<script type="text/javascript">
+		$("#valiateform").validate();
+	</script>
 </body>
 </html>

@@ -17,5 +17,6 @@ public interface UserMapper {
 	int updateStatus(@Param("userId")Integer userId,@Param("status")int status);
 	@Select("SELECT * FROM cms_user WHERE username = #{value} limit 1")
 	User findByUserName(String username);
-	
+	//添加注册
+	int add(User user);
 }

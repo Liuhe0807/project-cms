@@ -107,15 +107,15 @@
 							<li data-target="#myCarousel" data-slide-to="2"></li>
 						</ol>   
 						<!-- 轮播（Carousel）项目 -->
-						<div class="carousel-inner">
+						<div class="carousel-inner thumbnail" >
 							<div class="item active">
-								<img height="200px" src="/resource/images/1.jpg" alt="First slide">
+								<img height="200px" class="img-rounded" src="/resource/images/1.jpg" style="border-radius:24px; align:center;width:800px; height:400px;" alt="First slide">
 							</div>
 							<div  class="item">
-								<img height="200px"  src="/resource/images/3.jpg" alt="Second slide">
+								<img height="200px"  class="img-rounded" src="/resource/images/3.jpg" style="border-radius:24px; align:center;width:800px; height:400px;" alt="Second slide">
 							</div>
 							<div class="item">
-								<img height="200px" src="/resource/images/2.jpg" alt="Third slide">
+								<img height="200px"  class="img-rounded" src="/resource/images/2.jpg" style="border-radius:24px; align:center;width:800px; height:400px;" alt="Third slide">
 							</div>
 						</div>
 						<!-- 轮播（Carousel）导航 -->
@@ -133,7 +133,7 @@
 						<c:forEach items="${hotList.list}" var="article" >
 						<div class=row>
 							<hr>
-							<div class="col-md-2"><img height="80px" width="80px" src="/pic/${article.picture}"></div>
+							<div class="col-md-2"><img height="80px" width="80px" src="/pic/${article.picture}" onerror="this.src='/resource/images/logo.png'"></div>
 							<div class="col-md-10">
 								<a href="javascript:showArticle(${article.id})">${article.title}</a>
 								<br>
@@ -195,7 +195,34 @@
 
 </div>
 
-
+<!-- 底部 -->
+<nav class="navbar navbar-default" style="background:#FFFFFF">
+ <div class="container-fluid" style="text-align:center">
+ 	<div class="row" style="margin-top:13px">
+ 	    <div class="col-md-1"><a href="sohu.com" class="fl"></a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">搜狐</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">今日头条</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">网易</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">新浪中国</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">百度</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">饿了么</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">淘宝</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">大众点评</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">豆瓣电影</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">风火轮</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl"></a></div>
+ 	</div>
+ 	<div class="row" >
+ 		<div class="col-md-1"><a href="sohu.com" class="fl"></a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">饿了么</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">淘宝</a></div>
+ 		<div class="col-md-1"><a href="sohu.com" class="fl">大众点评</a></div>
+ 		
+ 	</div>
+ </div>
+   <hr width="90%"/>
+ 	<%@include file="./common/footer.jsp"  %>
+</nav>
 
 <!-- 底部 -->
 <nav class="navbar navbar-default">

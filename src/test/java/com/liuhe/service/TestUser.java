@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.liuhe.beans.User;
+import com.liuhe.common.Md5;
 
 public class TestUser extends TestBase{
 
@@ -13,17 +14,24 @@ public class TestUser extends TestBase{
 	@Test
 	public void testRegister(){
 		User user = new User();
-		user.setUsername("zhenshuaiwei");
+		user.setUsername("zxc");
 		user.setPassword("123456");
 		
 		service.register(user);
+		
+		/*User xiaojian = new User();
+		xiaojian.setUsername("xiaojian");
+		xiaojian.setPassword("123456");
+		
+		service.register(xiaojian);*/
 	}
 	
 	@Test
 	public void testLogin(){
 		User user = new User();
-		user.setUsername("zhenshuaiwei");
+		user.setUsername("lh");
 		user.setPassword("123456");
+	
 		User login = service.login(user);
 		if(login==null){
 			System.out.println("登录失败");

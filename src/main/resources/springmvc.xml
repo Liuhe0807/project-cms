@@ -24,6 +24,20 @@
 	</bean>
 	
 	<!-- 配置权限的拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/user/register"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/index"/>
+			<mvc:exclude-mapping path="/pic/**"/>
+			<mvc:exclude-mapping path="/admin/aaa"/>
+			<mvc:exclude-mapping path="/resource/**"/>
+			<mvc:exclude-mapping path="/article/showdetail"/>
+			<bean class="com.liuhe.web.UserInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			配置拦截的资源

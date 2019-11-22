@@ -13,7 +13,7 @@ public class Article {
 	//频道
 	private Integer channelId;
 	private Channel channel;
-	private String catgoryId;
+	private String categoryId;
 	//文章的分类
 	private Category category;
 	
@@ -72,11 +72,11 @@ public class Article {
 	public void setChannel(Channel channel) {
 		this.channel = channel;
 	}
-	public String getCatgoryId() {
-		return catgoryId;
+	public String getCategoryId() {
+		return categoryId;
 	}
-	public void setCatgoryId(String catgoryId) {
-		this.catgoryId = catgoryId;
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 	public Category getCategory() {
 		return category;
@@ -144,8 +144,12 @@ public class Article {
 	public void setArticleType(int articleType) {
 		this.articleType = articleType;
 	}
+	
+	public Article() {
+		super();
+	}
 	public Article(Integer id, String title, String content, String picture,
-			Integer channelId, Channel channel, String catgoryId,
+			Integer channelId, Channel channel, String categoryId,
 			Category category, Integer userId, User user, int hits, int hot,
 			int status, int deleted, Date created, Date updated,
 			int commentCnt, int articleType) {
@@ -156,7 +160,7 @@ public class Article {
 		this.picture = picture;
 		this.channelId = channelId;
 		this.channel = channel;
-		this.catgoryId = catgoryId;
+		this.categoryId = categoryId;
 		this.category = category;
 		this.userId = userId;
 		this.user = user;
@@ -169,14 +173,12 @@ public class Article {
 		this.commentCnt = commentCnt;
 		this.articleType = articleType;
 	}
-	public Article() {
-		super();
-	}
+	
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", title=" + title + ", content="
 				+ content + ", picture=" + picture + ", channelId=" + channelId
-				+ ", channel=" + channel + ", catgoryId=" + catgoryId
+				+ ", channel=" + channel + ", categoryId=" + categoryId
 				+ ", category=" + category + ", userId=" + userId + ", user="
 				+ user + ", hits=" + hits + ", hot=" + hot + ", status="
 				+ status + ", deleted=" + deleted + ", created=" + created

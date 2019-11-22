@@ -128,6 +128,14 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + ", nickname=" + nickname + ", birthday="
+				+ birthday + ", gender=" + gender + ", locked=" + locked
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime
+				+ ", url=" + url + ", score=" + score + ", role=" + role + "]";
+	}
 	
 	
 	

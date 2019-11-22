@@ -41,7 +41,7 @@
 	<div class="col-md-2">
 		<div style="margin-left:20px ">
 			<ul class="nav nav-pills nav-stacked">
-			  <li class="active"><a href="javascript:showFuction('/admin/articles')">文章列表</a></li>
+			  <li class="active"><a href="javascript:showFunction('/admin/article')">文章列表</a></li>
 			  <li><a href="javascript:showFuction('/user/hello')">测试</a></li>
 			  <li><a href="#">发布文章</a></li>
 			  <li>投票管理
@@ -69,7 +69,7 @@ role="navigation">
 </nav>
 
 <script type="text/javascript">
-	function showFuction(url){
+	function showFunction(url){
 		$("#content").load(url)
 	}
 </script>

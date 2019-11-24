@@ -31,6 +31,7 @@
 			<mvc:exclude-mapping path="/user/register"/>
 			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/index"/>
+			<mvc:exclude-mapping path="/channel"/>
 			<mvc:exclude-mapping path="/pic/**"/>
 			<mvc:exclude-mapping path="/admin/aaa"/>
 			<mvc:exclude-mapping path="/resource/**"/>

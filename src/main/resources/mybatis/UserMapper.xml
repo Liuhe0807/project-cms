@@ -33,7 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update_time,url,score,role) value(#{username},#{password},#{nickname},#{birthday},#{gender},0,now(),
 		now(),'',0,#{role})
 	</insert>
-
+	<select id="getFavoriteList" resultType="Favorite">
+		<!-- select * from cms_favorite where user_id=#{value} -->
+		select cms_favorite.*,cms_article.title from cms_favorite,cms_article where cms_favorite.user_id=#{value} and cms_article.id=cms_favorite.article_id
+	</select>
 
 
 

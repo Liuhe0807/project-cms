@@ -102,5 +102,11 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleMapper.setHot(id, status);
 	}
 
+	@Override
+	public int favorite(Integer userId, int articleId) {
+		// TODO Auto-generated method stub
+		return articleMapper.favorite(userId,articleId);
+	}
+
 	
 }

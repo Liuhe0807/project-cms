@@ -69,4 +69,7 @@ public interface ArticleMapper {
 			+ "category_id=#{categoryId},status=0,updated=now() WHERE id=#{id}")
 	int update(Article article);
 	
+	@Insert(" replace cms_favorite(user_id,article_id,created) values(#{userId},#{articleId},now())")
+	int favorite(@Param("userId")Integer userId, @Param("articleId")int articleId);
+	
 }

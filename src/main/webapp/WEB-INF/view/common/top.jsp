@@ -50,10 +50,11 @@
 		            <li><a href="#">个人中心</a></li>
 		            <li><a href="#">个人设置</a></li>
 		            <li><a href="#">修改头像</a></li>
+		            <li><a href="javascript:box()">收藏夹</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="/user/logout">退出登录</a></li>
 		          </ul>
-		        </li> 、
+		        </li> 
 	        </c:otherwise>
         </c:choose>
       </ul>
@@ -80,4 +81,11 @@
 		
 
 </style>
+ <script type="text/javascript">
+function box(){
+	location="/user/tobox";
+	
+}
+ 
+</script>
  

@@ -20,7 +20,9 @@
 			作者：${article.user.username} 
 			&nbsp;&nbsp;&nbsp;&nbsp; 发布时间：${article.created} 
 			&nbsp;&nbsp;&nbsp;&nbsp; 频道：${article.channel.name} 
-			&nbsp;&nbsp;&nbsp;&nbsp; 分类：${article.category.name} 
+			&nbsp;&nbsp;&nbsp;&nbsp; 分类：${article.category.name}
+			&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:favorite(${article.id })">收藏</a>
+			 
 		</h5>
 		<div>
 			${article.content}
@@ -38,5 +40,26 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+function favorite(id){
+	$.post(
+		"/user/favorite",
+		{id:id},
+		function(msg){
+			if(msg.result == 1){
+				alert("收藏成功")
+			}
+			else{
+				alert(msg.errorMsg);
+			}
+		},
+		"json"
+
+	
+	)
+	
+}
+
+</script>
 </body>
 </html>

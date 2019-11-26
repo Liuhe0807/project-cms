@@ -19,4 +19,7 @@ public interface UserMapper {
 	User findByUserName(String username);
 	//添加注册
 	int add(User user);
+	
+	//@Select("select * from cms_favorite where user_id=#{value}")
+	List getFavoriteList(Integer id);
 }

@@ -59,7 +59,34 @@ public class UserController {
 	@Autowired
 	ChannelService channelService;
 
+	
+	
 	private SimpleDateFormat dateFormat;
+	//收藏夹
+	@RequestMapping("tobox")
+	public Object box(HttpServletRequest request){
+		//System.out.println("1231231231312");
+		User user = (User) request.getSession().getAttribute(ConstantClass.USER_KEY);
+		CmsAssert.AssertTrue(user!=null, "你还没有登录");
+		List list = userService.getFavoriteList(user.getId());
+		System.out.println(user.getId());
+		request.setAttribute("list", list);
+		return "/user/favorite";
+	}
+
+	
+	//收藏功能
+	@RequestMapping("favorite")
+	@ResponseBody
+	public MsgResult favorite(HttpServletRequest request, int id){
+		System.out.println("====================================");
+		CmsAssert.AssertTrue(id>0, "id 不合法");
+		User loginUser = (User) request.getSession().getAttribute(ConstantClass.USER_KEY);
+		CmsAssert.AssertTrue(loginUser!=null, "尚未登陆");
+		int result = articleService.favorite(loginUser.getId(),id);
+		CmsAssert.AssertTrue(result>0, "很遗憾，收藏失败");
+		return new MsgResult(1, "收藏成功", null);
+	}
 	
 	@Autowired
 	private UserService service;

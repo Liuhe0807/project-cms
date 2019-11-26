@@ -20,7 +20,8 @@ public interface UserService {
 
 	User login(User user);
 
-	
+	//收藏夹
+	List getFavoriteList(Integer id);
 	
 	
 }

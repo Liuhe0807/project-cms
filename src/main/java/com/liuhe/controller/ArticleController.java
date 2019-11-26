@@ -29,7 +29,7 @@ public class ArticleController {
 	public String showDetail(Model m,Integer id){
 		Article articles = service.getById(id);
 		CmsAssert.AssertTrueHtml(articles!=null, "文章不存在");
-		m.addAttribute("articles", articles);
+		m.addAttribute("article", articles);
 		return "article/detail";
 		
 	}

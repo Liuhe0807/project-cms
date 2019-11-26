@@ -36,4 +36,8 @@ public interface ArticleService {
 
 	//修改文章
 	int update(Article article);
+	
+	//收藏文章
+	int favorite(Integer userId, int articleId);
+	
 }

@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 //收藏
-public class Collect {
+public class Link {
 
 	private int id       ;
 	private int userId   ;
@@ -46,7 +46,7 @@ public class Collect {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-	public Collect(int id, int userId, String url, String name, Date created) {
+	public Link(int id, int userId, String url, String name, Date created) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -54,7 +54,7 @@ public class Collect {
 		this.name = name;
 		this.created = created;
 	}
-	public Collect() {
+	public Link() {
 		super();
 	}
 	@Override

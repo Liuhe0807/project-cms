@@ -95,6 +95,12 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	@Override
+	public List getFavoriteList(Integer id) {
+		System.out.println("============================");
+		return mapper.getFavoriteList(id);
+	}
+
 	
 
 	

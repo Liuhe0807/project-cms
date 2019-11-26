@@ -47,12 +47,8 @@
 			  <li class="active" data="/admin/articles"><a href="javascript:showFuction('/admin/articles')">文章列表</a></li>
 			  <li><a href="javascript:showFuction('/user/hello')">测试</a></li>
 			  <li><a href="#">发布文章</a></li>
-			  <li>投票管理
-			  	<ul class="nav nav-pills nav-stacked">
-			  		<li><a href="#">投票列表</a></li>
-			  		<li><a href="#">新建投票</a></li>
-			  	</ul>
-			  </li>
+			  <li><a href="javascript:showFuction($(this),'/link/list')">友情连接管理</a></li>
+			  <li><a href="#">投票管理</a></li>
 			  <li class="divider"></li>
 			  <li><a href="javascript:showFunction('/admin/users')">用户管理</a></li>
 			</ul>
